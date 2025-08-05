@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Online Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007b5e;
+        }
+
+        .category {
+            margin-top: 40px;
+        }
+
+        .category h2 {
+            color: #333;
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .item {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 30%;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .item h3 {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .item p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        @media(max-width: 768px) {
+            .item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Cricket Online Store</h1>
+</header>
+    <!-- Category Template -->
+    <!-- You can copy and reuse the category block below for all categories -->
+
+    <!-- 1. Bats -->
+    <div class="category">
+        <h2>Cricket Bats</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Bat 1">
+                <h3>Bat - Standard</h3>
+                <p>Grade 3 English Willow, lightweight, beginner-friendly.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Bat 2">
+                <h3>Bat - Premium</h3>
+                <p>Grade 2 English Willow, balanced weight, good stroke play.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Bat 3">
+                <h3>Bat - Professional</h3>
+                <p>Grade 1 English Willow, used by professionals, powerful hitting.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Balls -->
+    <div class="category">
+       <h2>Cricket Balls</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Ball 1">
+                <h3>Ball - Training</h3>
+                <p>Soft leather ball, ideal for practice and net sessions.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Ball 2">
+                <h3>Ball - Club</h3>
+                <p>Club-level ball, stitched seam, suitable for matches.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Ball 3">
+                <h3>Ball - Test Grade</h3>
+                <p>Top-quality leather, long-lasting shine, test-standard.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Gloves -->
+    <div class="category">
+        <h2>Batting Gloves</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Gloves 1">
+                <h3>Gloves - Entry Level</h3>
+                <p>PU material, basic protection, ideal for beginners.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Gloves 2">
+                <h3>Gloves - Intermediate</h3>
+                <p>Good grip, finger guards, leather finish.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Gloves 3">
+                <h3>Gloves - Pro Series</h3>
+                <p>High-density foam, superior comfort, advanced protection.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Helmets -->
+    <div class="category">
+        <h2>Cricket Helmets</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Helmet 1">
+                <h3>Helmet - Basic</h3>
+                <p>Lightweight, adjustable strap, budget friendly.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Helmet 2">
+                <h3>Helmet - Mid Range</h3>
+                <p>Steel grill, added padding, comfortable fit.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Helmet 3">
+                <h3>Helmet - Elite</h3>
+                <p>Carbon fiber shell, anti-shock tech, elite protection.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Kit Bags -->
+    <div class="category">
+        <h2>Kit Bags</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Bag 1">
+                <h3>Kit Bag - Compact</h3>
+                <p>Easy to carry, fits essentials, water resistant.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Bag 2">
+                <h3>Kit Bag - Medium</h3>
+                <p>Extra compartments, shoe section, padded straps.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Bag 3">
+                <h3>Kit Bag - Deluxe</h3>
+                <p>Wheels & handle, full gear fit, premium zippers.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Pads -->
+    <div class="category">
+        <h2>Batting Pads</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Pads 1">
+                <h3>Pads - Youth</h3>
+                <p>Light padding, quick fit straps, beginner use.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Pads 2">
+                <h3>Pads - Standard</h3>
+                <p>Reinforced knee roll, foam protection, durable.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Pads 3">
+                <h3>Pads - Pro</h3>
+                <p>Triple-layered protection, comfort fit, breathable mesh.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Thigh Pads -->
+    <div class="category">
+        <h2>Thigh Pads</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Thigh Pad 1">
+                <h3>Thigh Pad - Basic</h3>
+                <p>Single side, lightweight, elastic straps.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Thigh Pad 2">
+                <h3>Thigh Pad - Dual</h3>
+                <p>Inner & outer protection, flexible material.</p>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/150" alt="Thigh Pad 3">
+                <h3>Thigh Pad - Elite</h3>
+                <p>Ultra protection, molded padding, ventilated fabric.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Arm Guards -->
+    <div class="category">
+        <h2>
