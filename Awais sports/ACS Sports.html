@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACS Awais Cricket Shop</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0; background: #f4f4f4;
+  }
+  header {
+    background: #003366;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+  }
+  header img.logo {
+    height: 50px;
+    margin-right: 15px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  .banner {
+    width: 100%;
+    max-height: 1000px;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .banner img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px 40px;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .product {
+    background: white;
+    padding: 15px;
+    width: calc(33.333% - 13.333px);
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+  }
+  .product h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .quality-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .quality-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  .quality-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .quality-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background: #fff;
+    border-radius: 4px;
+  }
+  .quality-info {
+    flex-grow: 1;
+  }
+  .quality-info strong {
+    display: block;
+    font-size: 14px;
+  }
+  .quality-info span {
+    color: #555;
+    font-size: 13px;
+  }
+  button.add-to-cart {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  button.add-to-cart:hover {
+    background: #0056b3;
+  }
+  #cart {
+    background: white;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  #cart h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  #cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+  }
+  #cart-items li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  #cart-total {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+  }
+  @media (max-width: 900px) {
+    .product {
+      width: calc(50% - 10px);
+    }
+  }
+  @media (max-width: 600px) {
+    .product {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="data:image/png;base64,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" alt="" class="logo">
+  <h1>ACS Awais Cricket Shop</h1>
+
+<nav>
+  <ul class="nav-list"> 
+    <li><a href="#home" class="home.html">Home</a></li><br>
+    <li><a href="#about" class="About.html">About Us</a></li><br>
+    <li><a href="#contact" class="contact.html">Contact </a></li><br>
+    <li><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new" class="mail.html">Mail</a></li><br>
+  </ul>
+</nav>
+</header>
+<section id="home" style="padding: 50px;"> 
+    <center><h1>Welcome to ACS Awais Cricket Shop!</h1></center>
+</section>
+<br>
+
+<div class="banner">
+  <img src="https://wallpapers.com/images/hd/pakistan-cricket-national-anthem-gesture-8tiniu0xry5tj4bx.jpg" />
+   
+</div>
+
+<section id="about" style="padding: 50px; background: #025e3a;">
+<center><h1><p>We provide best cricket gears</p></h1></center>
+</section>
+<br>
+<section id="contact" style="padding: 50px; background: #eee;">
+    <p><h1>Muhammd Awais Javed</h1></p>
+     <p><h1>Contact:+923056539039</h1></p>
+</section>
+
+<div class="container">
+  <div class="products" id="products">
+    <!-- Products will be injected here by JS -->
+  </div>
+
+  <div id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items">
+      <li>Your cart is empty.</li>
+    </ul>
+    <div id="cart-total"></div>
+  </div>
+</div>
+
+<script>
+// Product data with 3 qualities each
+const products = [
+  {
+    name: "Bat",
+    qualities: [
+      {
+        qualityName: "Basic Bat",
+        price: 1500,
+        img: "https://images.unsplash.com/photo-1578587773671-c04d8d7a7c4f?auto=format&fit=crop&w=80&q=80"
+      },
+      {
+        qualityName: "Professional Bat",
+        price: 4000,
+        img: "https://images.unsplash.com/photo-1609030293127-9c1dbdbdb62f?auto=format&fit=crop&w=80&q=80"
+      },
+      {
+        qualityName: "Premium Bat",
+        price: 7500,
+        img: "https://images.unsplash.com/photo-1509569099964-5cdbb241c4d8?auto=format&fit=crop&w=80&q=80"
+      }
+
+    ]
+
+}
+{
+    name: "Ball",
+    qualities: [
+      {
+        qualityName: "Basic Ball",
+        price: 250,
+        img: "https://cdn-icons-png.flaticon.com/512/616/616408.png"
+      },
+      {
+        qualityName: "Professional Ball",
+        price: 600,
+        img: "https://cdn-icons-png.flaticon.com/512/616/616410.png"
+      },
+      {
+        qualityName: "Premium Ball",
+        price: 1000,
+        img: "https://cdn-icons-png.flaticon.com/512/616/616412.png"
+      }
+    ]
+  },
+  {
+    name: "Helmet",
+    qualities: [
+      {
+        qualityName: "Basic Helmet",
+        price: 1200,
+        img: "https://cdn-icons-png.flaticon.com/512/3589/3589506.png"
+      },
+      {
+        qualityName: "Professional Helmet",
+        price: 3000,
+        img: "https://cdn-icons-png.flaticon.com/512/3589/3589515.png"
+      },
+      {
+        qualityName: "Premium Helmet",
+        price: 5500,
+        img: "https://cdn-icons-png.flaticon.com/512/3589/3589518.png"
+      }
+    ]
+  },
+  {
+    name: "Pads",
+    qualities: [
+      {
+        qualityName: "Basic Pads",
+        price: 1000,
+        img: "https://cdn-icons-png.flaticon.com/512/1483/1483620.png"
+      },
+      {
+        qualityName: "Professional Pads",
+        price: 2500,
+        img: "https://cdn-icons-png.flaticon.com/512/1483/1483623.png"
+      },
+      {
+        qualityName: "Premium Pads",
+        price: 4000,
+        img: "https://cdn-icons-png.flaticon.com/512/1483/1483627.png"
+      }
+    ]
+  },
+  {
+    name: "Thigh Pads",
+    qualities: [
+      {
+        qualityName: "Basic Thigh Pads",
+        price: 700,
+        img: "https://cdn-icons-png.flaticon.com/512/1995/1995593.png"
+      },
+      {
+        qualityName: "Professional Thigh Pads",
+        price: 1800,
+        img: "https://cdn-icons-png.flaticon.com/512/1995/1995600.png"
+      },
+      {
+        qualityName: "Premium Thigh Pads",
+        price: 3200,
+        img: "https://cdn-icons-png.flaticon.com/512/1995/1995603.png"
+      }
+    ]
+  },
+  {
+    name: "Elbow Guard",
+    qualities: [
+      {
+        qualityName: "Basic Elbow Guard",
+        price: 600,
+        img: "https://cdn-icons-png.flaticon.com/512/565/565667.png"
+      },
+      {
+        qualityName: "Professional Elbow Guard",
+        price: 1500,
+        img: "https://cdn-icons-png.flaticon.com/512/565/565669.png"
+      },
+      {
+        qualityName: "Premium Elbow Guard",
+        price: 2800,
+        img: "https://cdn-icons-png.flaticon.com/512/565/565670.png"
+      }
+    ]
+  },
+  {
+    name: "Kitbag",
+    qualities: [
+      {
+        qualityName: "Basic Kitbag",
+        price: 800,
+        img: "https://cdn-icons-png.flaticon.com/512/1250/1250729.png"
+      },
+      {
+        qualityName: "Professional Kitbag",
+        price: 2200,
+        img: "https://cdn-icons-png.flaticon.com/512/1250/1250735.png"
+      },
+      {
+        qualityName: "Premium Kitbag",
+        price: 3700,
+        img: "https://cdn-icons-png.flaticon.com/512/1250/1250738.png"
+      }
+    ]
+  },
+  {
+    name: "Track Suit",
+    qualities: [
+      {
+        qualityName: "Basic Track Suit",
+        price: 1500,
+        img: "https://cdn-icons-png.flaticon.com/512/1998/1998767.png"
+      },
+      {
+        qualityName: "Professional Track Suit",
+        price: 4000,
+        img: "https://cdn-icons-png.flaticon.com/512/1998/1998763.png"
+      },
+      {
+        qualityName: "Premium Track Suit",
+        price: 7000,
+        img: "https://cdn-icons-png.flaticon.com/512/1998/1998770.png"
+      }
+    ]
+  },
+  {
+    name: "Chest Guard",
+    qualities: [
+      {
+        qualityName: "Basic Chest Guard",
+        price: 1100,
+        img: "https://cdn-icons-png.flaticon.com/512/4177/4177756.png"
+      },
+      {
+        qualityName: "Professional Chest Guard",
+        price: 2700,
+        img: "https://cdn-icons-png.flaticon.com/512/4177/4177752.png"
+      },
+      {
+        qualityName: "Premium Chest Guard",
+        price: 4600,
+        img: "https://cdn-icons-png.flaticon.com/512/4177/4177758.png"
+      }
+    ]
+  }
+ {
+    name: "Ball",
+    qualities: [
+      {
+        qualityName: "Basic Ball",
+        price: 250,
+        img: "https://cdn-icons-png.flaticon.com/512/616/616408.png"
+      },
+      {
+        qualityName: "Professional Ball",
+        price: 600,
+        img: "https://cdn-icons-png.flaticon.com/512/616/616410.png"
+      },
+      {
+        qualityName: "Premium Ball",
+        price: 1000,
+        img: "https://cdn-icons-png.flaticon.com/512/616/616412.png"
+      }
+    ]
+  },
+  {
+    name: "Helmet",
+    qualities: [
+      {
+        qualityName: "Basic Helmet",
+        price: 1200,
+        img: "https://cdn-icons-png.flaticon.com/512/3589/3589506.png"
+      },
+      {
+        qualityName: "Professional Helmet",
+        price: 3000,
+        img: "https://cdn-icons-png.flaticon.com/512/3589/3589515.png"
+      },
+      {
+        qualityName: "Premium Helmet",
+        price: 5500,
+        img: "https://cdn-icons-png.flaticon.com/512/3589/3589518.png"
+      }
+    ]
+  },
+  {
+    name: "Pads",
+    qualities: [
+      {
+        qualityName: "Basic Pads",
+        price: 1000,
+        img: "https://cdn-icons-png.flaticon.com/512/1483/1483620.png"
+      },
+      {
+        qualityName: "Professional Pads",
+        price: 2500,
+        img: "https://cdn-icons-png.flaticon.com/512/1483/1483623.png"
+      },
+      {
+        qualityName: "Premium Pads",
+        price: 4000,
+        img: "https://cdn-icons-png.flaticon.com/512/1483/1483627.png"
+      }
+    ]
+  },
+  {
+    name: "Thigh Pads",
+    qualities: [
+      {
+        qualityName: "Basic Thigh Pads",
+        price: 700,
+        img: "https://cdn-icons-png.flaticon.com/512/1995/1995593.png"
+      },
+      {
+        qualityName: "Professional Thigh Pads",
+        price: 1800,
+        img: "https://cdn-icons-png.flaticon.com/512/1995/1995600.png"
+      },
+      {
+        qualityName: "Premium Thigh Pads",
+        price: 3200,
+        img: "https://cdn-icons-png.flaticon.com/512/1995/1995603.png"
+      }
+    ]
+  },
+  {
+    name: "Elbow Guard",
+    qualities: [
+      {
+        qualityName: "Basic Elbow Guard",
+        price: 600,
+        img: "https://cdn-icons-png.flaticon.com/512/565/565667.png"
+      },
+      {
+        qualityName: "Professional Elbow Guard",
+        price: 1500,
+        img: "https://cdn-icons-png.flaticon.com/512/565/565669.png"
+      },
+      {
+        qualityName: "Premium Elbow Guard",
+        price: 2800,
+        img: "https://cdn-icons-png.flaticon.com/512/565/565670.png"
+      }
+    ]
+  },
+  {
+    name: "Kitbag",
+    qualities: [
+      {
+        qualityName: "Basic Kitbag",
+        price: 800,
+        img: "https://cdn-icons-png.flaticon.com/512/1250/1250729.png"
+      },
+      {
+        qualityName: "Professional Kitbag",
+        price: 2200,
+        img: "https://cdn-icons-png.flaticon.com/512/1250/1250735.png"
+      },
+      {
+        qualityName: "Premium Kitbag",
+        price: 3700,
+        img: "https://cdn-icons-png.flaticon.com/512/1250/1250738.png"
+      }
+    ]
+  },
+  {
+    name: "Track Suit",
+    qualities: [
+      {
+        qualityName: "Basic Track Suit",
+        price: 1500,
+        img: "https://cdn-icons-png.flaticon.com/512/1998/1998767.png"
+      },
+      {
+        qualityName: "Professional Track Suit",
+        price: 4000,
+        img: "https://cdn-icons-png.flaticon.com/512/1998/1998763.png"
+      },
+      {
+        qualityName: "Premium Track Suit",
+        price: 7000,
+        img: "https://cdn-icons-png.flaticon.com/512/1998/1998770.png"
+      }
+    ]
+  },
+  {
+    name: "Chest Guard",
+    qualities: [
+      {
+        qualityName: "Basic Chest Guard",
+        price: 1100,
+        img: "https://cdn-icons-png.flaticon.com/512/4177/4177756.png"
+      },
+      {
+        qualityName: "Professional Chest Guard",
+        price: 2700,
+        img: "https://cdn-icons-png.flaticon.com/512/4177/4177752.png"
+      },
+      {
+        qualityName: "Premium Chest Guard",
+        price: 4600,
+        img: "https://cdn-icons-png.flaticon.com/512/4177/4177758.png"
+      }
+    ]
+  }
+
+// Cart data
+let cart = [];
+
+// Reference to elements
+const productsDiv = document.getElementById("products");
+const cartItemsUl = document.getElementById("cart-items");
+const cartTotalDiv = document.getElementById("cart-total");
+
+// Render products on page
+function renderProducts() {
+  products.forEach((product, productIndex) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product");
+
+    const title = document.createElement("h2");
+    title.textContent = product.name;
+    productDiv.appendChild(title);
+
+    const ul = document.createElement("ul");
+    ul.classList.add("quality-list");
+
+    product.qualities.forEach((quality, qualityIndex) => {
+      const li = document.createElement("li");
+      li.classList.add("quality-item");
+
+      const img = document.createElement("img");
+      img.src = quality.img;
+      img.alt = quality.qualityName;
+
+      const infoDiv = document.createElement("div");
+      infoDiv.classList.add("quality-info");
+
+      const qualityNameStrong = document.createElement("strong");
+      qualityNameStrong.textContent = quality.qualityName;
+
+      const priceSpan = document.createElement("span");
+      priceSpan.textContent = `Price: ₹${quality.price}`;
+
+      infoDiv.appendChild(qualityNameStrong);
+      infoDiv.appendChild(priceSpan);
+
+      const btn = document.createElement("button");
+      btn.textContent = "Add to Cart";
+      btn.classList.add("add-to-cart");
+      btn.addEventListener("click", () => {
+        addToCart(product.name, quality);
+      });
+
+      li.appendChild(img);
+      li.appendChild(infoDiv);
+      li.appendChild(btn);
+
+      ul.appendChild(li);
+    });
+
+    productDiv.appendChild(ul);
+    productsDiv.appendChild(productDiv);
+  });
+}
+
+// Add item to cart
+function addToCart(productName, quality) {
+  // Check if item already in cart (same product and quality)
+  const foundIndex = cart.findIndex(item => item.name === productName && item.qualityName === quality.qualityName);
+  if (foundIndex > -1) {
+    cart[foundIndex].quantity += 1;
+  } else {
+    cart.push({
+      name: productName,
+      qualityName: quality.qualityName,
+      price: quality.price,
+      quantity: 1
+    });
+  }
+  renderCart();
+}
+
+// Render cart items
+function renderCart() {
+  cartItemsUl.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItemsUl.innerHTML = "<li>Your cart is empty.</li>";
+    cartTotalDiv.textContent = "";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} (${item.qualityName}) x${item.quantity} - ₹${item.price * item.quantity}`;
+    total += item.price * item.quantity;
+    cartItemsUl.appendChild(li);
+  });
+
+  cartTotalDiv.textContent = `Total: ₹${total}`;
+}
+
+// Initialize
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html

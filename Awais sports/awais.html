@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACS — Awais Cricket Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+    /* Header */
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Hero / Banner */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: none;
+    }
+    .hero img.active {
+      display: block;
+    }
+
+    /* Sections */
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .product-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .product-card {
+      width: 200px;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo"><strong>ACS</strong> – Awais Cricket Store</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Slider -->
+  <div class="hero" id="home">
+    <img src="https://cdn.dribbble.com/userupload/39655344/file/original-deb22cc96403b75e42c9f455610e3b94.png?resize=1600x1200" class="active" alt="Banner 1">
+    <img src="https://thecasports.com/images/blogs/english-willow-bat.jpg" alt="Banner 2">
+    <img src="https://cdn.dribbble.com/userupload/39655344/file/original-deb22cc96403b75e42c9f455610e3b94.png?resize=1600x1200" alt="Banner 3">
+  </div>
+
+  <!-- Shop Section -->
+  <section id="shop">
+    <h2>Shop Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x150?text=ACS+Bat" alt="ACS Bat">
+        <h3>ACS Pro Bat</h3>
+        <p>Rs. 12,500</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x150?text=Gloves" alt="ACS Gloves">
+        <h3>Batting Gloves</h3>
+        <p>Rs. 3,000</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x150?text=Kit+Bag" alt="Kit Bag">
+        <h3>ACS Kit Bag</h3>
+        <p>Rs. 4,500</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>ACS – Awais Cricket Store was founded with a passion for cricket and quality. Inspired by top brands like CA Sports, we provide premium gear for aspiring and professional players alike.</p>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog">
+    <h2>Our Blog</h2>
+    <article>
+      <h3>The Story Behind ACS</h3>
+      <p>Just like CA Sports started in Sialkot, ACS brings world-class craftsmanship and cricket love under one roof.</p>
+    </article>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@awaiscricketstore.com</p>
+    <p>Phone: +923056539039</p>
+    <p>Address: Zafar chowk Road, MIANI, Pakistan</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ACS — Awais Cricket Store. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Slider -->
+  <script>
+    const images = document.querySelectorAll(".hero img");
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove("active");
+      current = (current + 1) % images.length;
+      images[current].classList.add("active");
+    }, 3000); // Change image every 3 seconds
+  </script>
+</body>
+</html>
