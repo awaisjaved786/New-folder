@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ACS – Awais Cricket Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== Animated Gradient Background ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(270deg, #00ff99, #0099ff, #ff00aa, #ffcc00);
+      background-size: 800% 800%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header */
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff99;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ===== Glowing Logo Effect ===== */
+    .logo img {
+      height: 40px;
+      filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+      animation: logoGlow 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+    @keyframes logoGlow {
+      0% {
+        filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+      }
+      25% {
+        filter: drop-shadow(0 0 8px #0099ff) drop-shadow(0 0 16px #0099ff);
+      }
+      50% {
+        filter: drop-shadow(0 0 8px #ff00aa) drop-shadow(0 0 16px #ff00aa);
+      }
+      75% {
+        filter: drop-shadow(0 0 8px #ffcc00) drop-shadow(0 0 16px #ffcc00);
+      }
+      100% {
+        filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+      }
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Banner */
+    .banner {
+      width: 100%;
+      max-height: 1000px;
+      overflow: hidden;
+      position: relative;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 5px solid #0b6623;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="data:image/png;base64,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">
+      <h1>ACS – Awais Cricket Store</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="https://thecasports.com/images/thecamain.webp" alt="Banner 1" />
+  </div>
+
+  <footer>
+    <p>© 2025 Awais Cricket Store. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

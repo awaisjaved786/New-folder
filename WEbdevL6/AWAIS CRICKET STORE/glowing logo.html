@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glowing Logo</title>
+<style>
+    body {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .logo {
+        width: 200px;
+        height: auto;
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            filter: drop-shadow(0 0 5px #00ffcc) drop-shadow(0 0 10px #00ffcc);
+        }
+        to {
+            filter: drop-shadow(0 0 20px #00ffcc) drop-shadow(0 0 40px #00ffcc);
+        }
+    }
+</style>
+</head>
+<body>
+    <img src="https://cdn.vectorstock.com/i/1000v/01/23/acs-monogram-logo-vector-44730123.jpg" alt="Logo" class="logo">
+</body>
+</html>
