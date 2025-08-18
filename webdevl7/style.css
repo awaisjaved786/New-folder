@@ -1,0 +1,128 @@
+/* ====== ACS Awais Cricket Sports Style.css ====== */
+
+/* Reset default margins/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fa;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #01411C; /* Dark green cricket theme */
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #0b6623;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #117a36;
+  border-radius: 4px;
+}
+
+/* Main Content */
+main {
+  padding: 30px 20px;
+}
+
+main h2, main h3 {
+  color: #01411C;
+  margin-bottom: 10px;
+}
+
+.welcome,
+.highlight {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 2px solid #d1e7dd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {
+  background-color: #01411C;
+  color: #eee;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    padding: 10px;
+  }
+}
+.categarycard{
+  width: 800px;
+  height: 400px;
+   box-shadow: #117a36;
+   margin-left: 50px;
+   margin-top: 50px;
+   border-radius: 20px;
+}
+ .ACSbatcategarycard img{
+ width: 200px;
+ height: 200px;
+ box-shadow: #117a36;
+ margin-left: 50px;
+ margin-top: 50px;
+ border-radius: 20px;
+
+}
+
+ .ACSbatcategarycard img{
+ width: 200px;
+ height: 200px;
+ box-shadow: #80af91;
+ border-radius: 20px;
+ }
