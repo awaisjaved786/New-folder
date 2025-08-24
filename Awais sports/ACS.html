@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ACS Awais Cricket Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #006400;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 10px;
+      width: 30%;
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="ACS Logo" height="40" />
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<div class="banner">
+  <img src="pakistan-cricket-banner.jpg" alt="Cricket Team Banner" />
+</div>
+
+<h2 style="text-align: center;">Our Cricket Products</h2>
+<div class="products" id="product-list">
+  <!-- Product template: Bat -->
+  <div class="product">
+    <img src="bat1.jpg" alt="Bat - Premium" />
+    <h3>Bat - Premium</h3>
+    <p>Top grade English willow bat</p>
+    <button onclick="addToCart('Bat - Premium')">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="bat2.jpg" alt="Bat - Standard" />
+    <h3>Bat - Standard</h3>
+    <p>Durable and balanced</p>
+    <button onclick="addToCart('Bat - Standard')">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="bat3.jpg" alt="Bat - Budget" />
+    <h3>Bat - Budget</h3>
+    <p>Affordable for beginners</p>
+    <button onclick="addToCart('Bat - Budget')">Add to Cart</button>
+  </div>
+
+  <!-- Repeat the above pattern for all items -->
+
+  <!-- Ball -->
+  <div class="product">
+    <img src="ball1.jpg" alt="Ball - Premium" />
+    <h3>Ball - Premium</h3>
+    <p>Test match quality</p>
+    <button onclick="addToCart('Ball - Premium')">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ball2.jpg" alt="Ball - Standard" />
+    <h3>Ball - Standard</h3>
+    <p>Practice quality ball</p>
+    <button onclick="addToCart('Ball - Standard')">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ball3.jpg" alt="Ball - Budget" />
+    <h3>Ball - Budget</h3>
+    <p>Soft and low-bounce</p>
+    <button onclick="addToCart('Ball - Budget')">Add to Cart</button>
+  </div>
+
+  <!-- Add Gloves, Pads, Kit Bags, etc. in same format -->
+  <div class="product">
+    <img src="gloves1.jpg" alt="Gloves - Premium" />
+    <h3>Gloves - Premium</h3>
+    <p>Leather with padding</p>
+    <button onclick="addToCart('Gloves - Premium')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="gloves1.jpg" alt="Gloves - Premium" />
+    <h3>Gloves - Premium</h3>
+    <p>Leather with padding</p>
+    <button onclick="addToCart('Gloves - Premium')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="gloves1.jpg" alt="Gloves - Premium" />
+    <h3>Gloves - Premium</h3>
+    <p>Leather with padding</p>
+    <button onclick="addToCart('Gloves - Premium')">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="helmet1.jpg" alt="Helmet - Premium" />
+    <h3>Helmet - Premium</h3>
+    <p>Safety grade certified</p>
+    <button onclick="addToCart('Helmet - Premium')">Add to Cart</button>
+  </div>
+
+   <div class="product">
+    <img src="helmet1.jpg" alt="Helmet - Premium" />
+    <h3>Helmet - Premium</h3>
+    <p>Safety grade certified</p>
+    <button onclick="addToCart('Helmet - Premium')">Add to Cart</button>
+  </div>
+
+   <div class="product">
+    <img src="helmet1.jpg" alt="Helmet - Premium" />
+    <h3>Helmet - Premium</h3>
+    <p>Safety grade certified</p>
+    <button onclick="addToCart('Helmet - Premium')">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="chestguard1.jpg" alt="Chest Guard - Standard" />
+    <h3>Chest Guard - Standard</h3>
+    <p>Comfortable & flexible</p>
+    <button onclick="addToCart('Chest Guard - Standard')">Add to Cart</button>
+  </div>
+</div>
+<div class="product">
+    <img src="chestguard1.jpg" alt="Chest Guard - Professional" />
+    <h3>Chest Guard - Standard</h3>
+    <p>Comfortable & flexible</p>
+    <button onclick="addToCart('Chest Guard - Standard')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product">
+    <img src="chestguard1.jpg" alt="Chest Guard - Standard" />
+    <h3>Chest Guard - Standard</h3>
+    <p>Comfortable & flexible</p>
+    <button onclick="addToCart('Chest Guard - Standard')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product">
+    <img src="Pads1.jpg" alt="Pads - Standard" />
+    <h3>Pads- Standard</h3>
+    <p>Comfortable & flexible</p>
+    <button onclick="addToCart('Pads- Standard')">Add to Cart</button>
+  </div>
+</div>
+
+
+<div class="cart">
+  <h3>🛒 Cart</h3>
+  <ul id="cart-items"></ul>
+</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(itemName) {
+    cart.push(itemName);
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartList = document.getElementById("cart-items");
+    cartList.innerHTML = "";
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      cartList.appendChild(li);
+    });
+  }
+</script>
+
+</body>
+</html>

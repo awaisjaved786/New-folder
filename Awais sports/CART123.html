@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Card - Add to Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .basic-product {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      margin: 15px 0 10px;
+      display: block;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #28a745;
+      margin-bottom: 15px;
+    }
+
+    .addtocart_btn {
+      margin-top: 15px;
+    }
+
+    .add-button {
+      padding: 10px 20px;
+      background: #ffc107;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .qty-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qty-box .btn {
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .qty-input {
+      width: 40px;
+      text-align: center;
+      margin: 0 5px;
+    }
+
+    .cart-message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your product card -->
+  <div class="basic-product theme-product-6">
+    <div class="img-wrapper">
+      <img src="https://via.placeholder.com/300x200.png?text=Awesome+Sneakers" alt="Product">
+    </div>
+    <div class="product-detail">
+      <a class="product-title" href="#">Awesome Sneakers</a>
+      <h4 class="price">$49.99</h4>
+      <div class="addtocart_btn">
+        <button class="add-button add_cart" title="Add to cart" onclick="addToCart()">Add to Cart</button>
+        <div class="qty-box">
+          <button type="button" class="btn quantity-left-minus" onclick="changeQty(-1)">–</button>
+          <input type="text" name="quantity" class="form-control qty-input" id="qty" value="1">
+          <button type="button" class="btn quantity-right-plus" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-message" id="cartMessage">Product added to cart!</div>
+
+  <script>
+    function changeQty(change) {
+      const qtyInput = document.getElementById('qty');
+      let qty = parseInt(qtyInput.value);
+      if (isNaN(qty)) qty = 1;
+      qty += change;
+      if (qty < 1) qty = 1;
+      qtyInput.value = qty;
+    }
+
+    function addToCart() {
+      const qty = document.getElementById('qty').value;
+      const msg = document.getElementById('cartMessage');
+      msg.innerText = `Added ${qty} item(s) to cart!`;
+      msg.style.display = 'block';
+      setTimeout(() => {
+        msg.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Card - Add to Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .basic-product {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      margin: 15px 0 10px;
+      display: block;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #28a745;
+      margin-bottom: 15px;
+    }
+
+    .addtocart_btn {
+      margin-top: 15px;
+    }
+
+    .add-button {
+      padding: 10px 20px;
+      background: #ffc107;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .qty-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qty-box .btn {
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .qty-input {
+      width: 40px;
+      text-align: center;
+      margin: 0 5px;
+    }
+
+    .cart-message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your product card -->
+  <div class="basic-product theme-product-6">
+    <div class="img-wrapper">
+      <img src="https://via.placeholder.com/300x200.png?text=Awesome+Sneakers" alt="Product">
+    </div>
+    <div class="product-detail">
+      <a class="product-title" href="#">Awesome Sneakers</a>
+      <h4 class="price">$49.99</h4>
+      <div class="addtocart_btn">
+        <button class="add-button add_cart" title="Add to cart" onclick="addToCart()">Add to Cart</button>
+        <div class="qty-box">
+          <button type="button" class="btn quantity-left-minus" onclick="changeQty(-1)">–</button>
+          <input type="text" name="quantity" class="form-control qty-input" id="qty" value="1">
+          <button type="button" class="btn quantity-right-plus" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-message" id="cartMessage">Product added to cart!</div>
+
+  <script>
+    function changeQty(change) {
+      const qtyInput = document.getElementById('qty');
+      let qty = parseInt(qtyInput.value);
+      if (isNaN(qty)) qty = 1;
+      qty += change;
+      if (qty < 1) qty = 1;
+      qtyInput.value = qty;
+    }
+
+    function addToCart() {
+      const qty = document.getElementById('qty').value;
+      const msg = document.getElementById('cartMessage');
+      msg.innerText = `Added ${qty} item(s) to cart!`;
+      msg.style.display = 'block';
+      setTimeout(() => {
+        msg.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

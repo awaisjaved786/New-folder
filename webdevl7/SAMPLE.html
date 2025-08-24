@@ -1,0 +1,182 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ACS – Awais Cricket Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ===== Animated Gradient Background ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(270deg, #00ff99, #0099ff, #ff00aa, #ffcc00);
+      background-size: 800% 800%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ====== TEXT STYLING ====== */
+    h1, h2, h3 {
+      font-family: "Georgia", serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #f0f0f0;
+      letter-spacing: 0.5px;
+      word-spacing: 2px;
+      line-height: 1.8;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    nav a:hover {
+      color: #00ff99;
+      text-shadow: 0 0 8px #00ff99;
+    }
+
+    /* Header */
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff99;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ===== Glowing Logo Effect ===== */
+    .logo img {
+      height: 40px;
+      filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+      animation: logoGlow 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+    @keyframes logoGlow {
+      0% {
+        filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+      }
+      25% {
+        filter: drop-shadow(0 0 8px #0099ff) drop-shadow(0 0 16px #0099ff);
+      }
+      50% {
+        filter: drop-shadow(0 0 8px #ff00aa) drop-shadow(0 0 16px #ff00aa);
+      }
+      75% {
+        filter: drop-shadow(0 0 8px #ffcc00) drop-shadow(0 0 16px #ffcc00);
+      }
+      100% {
+        filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+      }
+    }
+
+    /* ====== Animated Color Changing Title ====== */
+    .color-changing {
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      animation: textColors 6s infinite linear;
+      text-shadow: 2px 2px 6px #000, 0 0 8px #fff;
+    }
+    @keyframes textColors {
+      0%   { color: #ff0000; }   /* Red */
+      20%  { color: #00ff00; }   /* Green */
+      40%  { color: #0000ff; }   /* Blue */
+      60%  { color: #ff00ff; }   /* Magenta */
+      80%  { color: #ffcc00; }   /* Yellow */
+      100% { color: #ff0000; }   /* Back to Red */
+    }
+
+    /* Banner */
+    .banner {
+      width: 100%;
+      max-height: 1000px;
+      overflow: hidden;
+      position: relative;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 5px solid #0b6623;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://thumbs.dreamstime.com/b/acs-letter-initial-logo-design-vector-illustration-letter-initial-logo-design-vector-illustration-acs-letter-initial-logo-design-236620457.jpg">
+      <!-- Animated Title -->
+      <h1 class="color-changing">ACS – Awais Cricket Store</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="https://thecasports.com/images/thecamain.webp" alt="Banner 1" />
+  </div>
+
+  <footer>
+    <p>© 2025 Awais Cricket Store. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

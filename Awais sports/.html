@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACS Awais Cricket Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    /* Header */
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .product h2 {
+      margin-top: 0;
+    }
+
+    button {
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #cart {
+      background-color: #fff;
+      padding: 15px;
+      margin-top: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    #cart-items {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .price {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>ACS - Awais Cricket Store</h1>
+    <p>Your Trusted Cricket Gear Partner</p>
+  </header>
+
+  <div class="container">
+    <h2>Shop Cricket Products</h2>
+
+    <!-- Product List -->
+    <div class="product">
+      <h2>Cricket Bat</h2>
+      <p class="price">$120.00</p>
+      <button onclick="addToCart('Cricket Bat', 120)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <h2>Cricket Ball</h2>
+      <p class="price">$10.00</p>
+      <button onclick="addToCart('Cricket Ball', 10)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <h2>Batting Gloves</h2>
+      <p class="price"></p>
+      <button onclick="addToCart('Batting Gloves', )">Add to Cart</button>
+    </div>
+
+    <!-- Cart Section -->
+    <div id="cart">
+      <h2>🛒 Cart (<span id="cart-count">0</span> items)</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: $<span id="cart-total">0.00</span></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 ACS - Awais Cricket Store. All rights reserved.
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartCount = document.getElementById('cart-count');
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+
+      cartCount.textContent = cart.length;
+      cartItems.innerHTML = '';
+
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+
+      cartTotal.textContent = total.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
