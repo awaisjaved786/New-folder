@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Batting Pads – ACS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #00ff99; }
+    nav a {
+      margin-left: 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    h1 {
+      text-align: center;
+      padding: 30px 0 10px;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      width: 220px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      overflow: hidden;
+      background: #fff;
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card h3 { margin: 10px 0 5px; }
+    .card p { color: #444; margin-bottom: 15px; }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo"><a href="data:image/png;base64,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"></a>ACS – Awais Cricket Store</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header><br>
+    Acedmy Near ZAFAR-CHOWK MIANI Ground,<br>
+    COACH NAME= MUHAMMAD.AWAIS.JAVED<br>
+    TEL.NO +923056539039<br>
+    WHATSAPP.No +923314701330<br>
+    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">VISIT OUR EMAIL</a><br>
+    <h1>THANK YOU FOR CONTACT US</h1>
+</body>
+</html>

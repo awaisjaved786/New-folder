@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Products — ACS</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="acs-header"></div>
+
+  <section class="section">
+    <div class="container">
+      <h2>All Products</h2>
+      <div id="product-grid" class="product-grid"></div>
+    </div>
+  </section>
+
+  <div id="acs-footer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    fetch('acs-header.html').then(r=>r.text()).then(t=>document.getElementById('acs-header').innerHTML=t);
+    fetch('acs-footer.html').then(r=>r.text()).then(t=>document.getElementById('acs-footer').innerHTML=t);
+  </script>
+</body>
+</html>

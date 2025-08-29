@@ -19,10 +19,9 @@ p::first-letter { font-size: 200%; color: #FF7B72; }
 
 /* remove default bullets so only the rocket shows */
 ul { list-style: none; padding-left: 0; }
-
-/* 🚀 before each list item — using Unicode escape so it works even if editor inserts wrong bytes */
+/* 🏏 before each list item — cricket bat and ball */
 ul li::before {
-  content: "\01F680  ";  /* U+1F680 🚀 (note the trailing space to end the escape) */
+  content: "\01F3CF  ";  /* U+1F3CF 🏏 */
   display: inline-block;
 }
 
@@ -30,3 +29,77 @@ ul li::before {
 a::after {
   content: " \01F449";   /* U+1F449 👉 */
 }
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Form Container */
+#checkout-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Fields */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #checkout-form {
+    margin: 20px auto;
+    padding: 15px;
+  }
+}
+

@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>import React, { useState, useEffect } from "react";
+{quickView && <QuickView product={quickView} onClose=> setQuickView(null)} onAdd={addToCart} />
+</div>;
+
+
+
+function Header({ cartCount = 0, onCartClick }) {
+return (
+<header className="bg-white shadow">
+<div className="max-w-7xl mx-auto p-4 flex items-center justify-between">
+<div className="flex items-center gap-4">
+<div className="text-2xl font-extrabold text-indigo-600">ACS</div>
+<nav className="hidden md:flex gap-4 text-sm text-gray-700">
+<a className="hover:underline">Home</a>
+<a className="hover:underline">Shop</a>
+<a className="hover:underline">Brands</a>
+<a className="hover:underline">About</a>
+</nav>
+</div>
+
+
+<div className="flex items-center gap-3">
+<button className="text-sm px-3 py-2">Sign in</button>
+<button className="relative" onClick={onCartClick} aria-label="Open cart">
+<svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6M17 13l1.2 6M6 19a1 1 0 11-2 0 1 1 0 012 0zm12 0a1 1 0 11-2 0 1 1 0 012 0z" />
+</svg>
+{cartCount > 0 && (
+<span className="absolute -top-1 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{cartCount}</span>
+)}
+</button>
+</div>
+</div>
+</header>
+);
+}
+
+
+const sliderItems = [
+{
+title: "World-Class Bats — International Willow",
+subtitle: "Designed for tour-level performance",
+img: "https://images.unsplash.com/photo-1512070804655-2f7d3b3e6c1d?auto=format&fit=crop&w=1400&q=60",
+},
+{
+title: "Protective Gear Trusted by Pros",
+subtitle: "Impact tech and lightweight materials",
+img: "https://images.unsplash.com/photo-1610484829884-3e78c3d5bd5d?auto=format&fit=crop&w=1400&q=60",
+},
+{
+title: "Smart Sensors & Performance Tech",
+subtitle: "Measure. Improve. Dominate.",
+img: "https://images.unsplash.com/photo-1591814479322-6b9a6f4a0c12?auto=format&fit=crop&w=1400&q=60",
+},
+];
+
+
+// (Rest of the code remains same as before — SearchFilter, ProductGrid, CartDrawer, QuickView, etc.)

@@ -1,0 +1,45 @@
+:root{--primary:#222;--accent:#ffcc00;--muted:#666}
+*{box-sizing:border-box}
+body{font-family:Segoe UI,Arial,sans-serif;margin:0;color:#222;background:#fff}
+.container{max-width:1150px;margin:0 auto;padding:0 16px}
+.topbar{background:#f3f3f3;font-size:14px}
+.topbar-inner{display:flex;justify-content:space-between;padding:8px 0}
+.top-links a{margin-left:12px;color:#333;text-decoration:none}
+
+.site-header .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo img{height:56px}
+.main-nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0;align-items:center}
+.main-nav a{color:#111;text-decoration:none;font-weight:600}
+.has-dropdown{position:relative}
+.dropdown{position:absolute;left:0;top:110%;display:none;background:#fff;border:1px solid #e7e7e7;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;gap:24px;min-width:420px}
+.has-dropdown:hover .dropdown{display:flex}
+.dropdown .col h4{margin:0 0 8px 0}
+.search-cart{display:flex;gap:10px;align-items:center}
+#search{padding:8px;border:1px solid #ddd;border-radius:4px;width:180px}
+.cart-link{text-decoration:none;font-size:20px}
+
+.hero{position:relative}
+.slider{display:flex;overflow:hidden;height:320px}
+.slide{min-width:100%;transition:transform .5s}
+.slide img{width:100%;height:320px;object-fit:cover}
+.hero-text{position:absolute;left:32px;top:40px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.section{padding:36px 0}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.product{background:#fff;border:1px solid #eee;padding:12px;border-radius:10px;text-align:center}
+.product img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.product h3{font-size:16px;margin:10px 0}
+.product p{color:var(--muted);margin:0 0 10px 0}
+.btn{display:inline-block;padding:8px 12px;background:var(--primary);color:#fff;border-radius:6px;text-decoration:none}
+.small-cards .card{display:inline-block;padding:12px 18px;margin:6px;background:#f8f8f8;border-radius:8px}
+
+.site-footer{background:#111;color:#ddd;padding:28px 0;margin-top:40px}
+.footer-grid{display:flex;gap:24px}
+.footer-grid h3,h4{color:#fff;margin:0 0 8px 0}
+.footer-bottom{text-align:center;padding:12px;color:#888;border-top:1px solid #1a1a1a;margin-top:18px}
+
+/* Responsive */
+@media (max-width:880px){
+  .main-nav ul{display:none}
+  .search-cart{flex:1;justify-content:flex-end}
+  .dropdown{min-width:calc(100vw - 40px)}
+}

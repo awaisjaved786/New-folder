@@ -1,0 +1,7 @@
+[
+  {"id":"bat-001","title":"ACS English Willow Pro Bat","price":149.99,"img":"images/bat1.jpg","category":"bats","desc":"Premium English willow bat, balance and power."},
+  {"id":"bat-002","title":"ACS Fiber Bat","price":69.99,"img":"images/bat2.jpg","category":"bats","desc":"Durable fibre bat for practice and nets."},
+  {"id":"glove-001","title":"ACS Batting Gloves","price":39.99,"img":"images/gloves1.jpg","category":"protection","desc":"Comfortable grip and ventilation."},
+  {"id":"pads-001","title":"ACS Leg Pads","price":59.99,"img":"images/pads1.jpg","category":"protection","desc":"Lightweight and protective pads."},
+  {"id":"ball-001","title":"ACS Leather Cricket Ball (6 pcs)","price":29.99,"img":"images/ball1.jpg","category":"balls","desc":"Durable leather balls for match practice."}
+]

@@ -1,0 +1,29 @@
+.example{
+width: 200px;
+height: 200px;
+background-color: mediumspringgreen;
+border: 10px solid gray;
+padding: 20px;
+margin: 20px;
+color: azure;
+font-size: 20px;
+}
+
+.example2{
+width: 200px;
+height: 100px;
+background-color: hotpink;
+border: 10px solid khaki;
+padding: 20px;
+margin: 20px;
+color: azure;
+font-size: 20px;
+}
+
+img{
+    float: right;
+}
+
+img{
+    float: left;
+}
