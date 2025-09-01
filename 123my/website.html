@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ACS – Awais Cricket Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="left">Free shipping over PKR 5,000 • Call: +92-300-0000000</div>
+      <div class="right">Login | Track Order</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="brandbar container">
+    <div class="logo-wrap">
+      <a href="index.html" class="logo-link">
+        <img src="images/acs-logo.png" alt="ACS – Awais Cricket Store" class="logo-img" onerror="this.style.display='none'">
+        <div class="text-logo">ACS – Awais Cricket Store</div>
+      </a>
+    </div>
+
+    <div class="search-wrap">
+      <input id="searchInput" placeholder="Search for bats, balls, gloves..." />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div class="mini-actions">
+      <a href="cart.html" class="cart-link">Cart (<span id="cartCount">0</span>)</a>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="main-nav">
+    <div class="container nav-grid">
+      <div class="nav-left">
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="#">Brands</a>
+        <a href="#">Offers</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / SLIDER -->
+  <section class="hero">
+    <div class="hero-slide slide1 active">
+      <div class="hero-inner container">
+        <h2>ACS Summer Sale — Up to 30% off</h2>
+        <p>Premium cricket bats & accessories. Limited time.</p>
+        <a class="btn" href="products.html">Shop Now</a>
+      </div>
+    </div>
+    <div class="hero-slide slide2">
+      <div class="hero-inner container">
+        <h2>New Arrivals — ACS Pro Series</h2>
+        <p>Lightweight, powerful, perfect balance.</p>
+        <a class="btn" href="products.html">View Collection</a>
+      </div>
+    </div>
+    <div class="hero-slide slide3">
+      <div class="hero-inner container">
+        <h2>Top Quality Match Balls</h2>
+        <p>Match-tested, durable, trusted by players.</p>
+        <a class="btn" href="products.html">Buy Balls</a>
+      </div>
+    </div>
+
+    <div class="slider-dots container">
+      <button class="dot active" data-index="0"></button>
+      <button class="dot" data-index="1"></button>
+      <button class="dot" data-index="2"></button>
+    </div>
+  </section>
+
+  <!-- FEATURED / CATEGORIES PREVIEW -->
+  <main class="container">
+    <h3 class="section-title">Featured Categories</h3>
+    <div class="category-grid">
+      <a href="products.html#bats" class="cat">
+        <img src="images/cat-bats.jpg" alt="Bats" onerror="this.style.opacity=.6">
+        <div class="cat-title">Cricket Bats</div>
+      </a>
+      <a href="products.html#balls" class="cat">
+        <img src="images/cat-balls.jpg" alt="Balls" onerror="this.style.opacity=.6">
+        <div class="cat-title">Cricket Balls</div>
+      </a>
+      <a href="products.html#gloves" class="cat">
+        <img src="images/cat-gloves.jpg" alt="Gloves" onerror="this.style.opacity=.6">
+        <div class="cat-title">Gloves</div>
+      </a>
+      <a href="products.html#kits" class="cat">
+        <img src="images/cat-kits.jpg" alt="Kits" onerror="this.style.opacity=.6">
+        <div class="cat-title">Complete Kits</div>
+      </a>
+    </div>
+
+    <h3 class="section-title">Best Sellers</h3>
+    <div id="bestGrid" class="best-grid">
+      <!-- populated by script.js -->
+    </div>
+
+    <h3 class="section-title">Recent Story</h3>
+    <div class="stories-grid">
+      <article class="story">
+        <img src="images/blog1.jpg" alt="story" onerror="this.style.opacity=.6">
+        <h5>A Look at the History of Cricket Gear</h5>
+        <p class="meta">by ACS Team</p>
+      </article>
+      <article class="story">
+        <img src="images/blog2.jpg" alt="story" onerror="this.style.opacity=.6">
+        <h5>Choosing the Right Bat for You</h5>
+        <p class="meta">by ACS Team</p>
+      </article>
+      <article class="story">
+        <img src="images/blog3.jpg" alt="story" onerror="this.style.opacity=.6">
+        <h5>Why Leather Balls Matter</h5>
+        <p class="meta">by ACS Team</p>
+      </article>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>About ACS</h4>
+        <p>Awais Cricket Store — premium cricket equipment & accessories in Pakistan.</p>
+      </div>
+      <div>
+        <h4>Customer Care</h4>
+        <p>Daska Road, Bogra, Sialkot – Pakistan<br/>052-111-227-275<br/>sales@awaiscricketstore.com</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="about.html">About</a> • <a href="contact.html">Contact</a> • Terms • Privacy</p>
+      </div>
+    </div>
+    <div class="bottom">© <span id="year"></span> ACS – Awais Cricket Store</div>
+  </footer>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

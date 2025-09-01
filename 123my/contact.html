@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact ACS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar"><div class="container"><div class="left">Free shipping over PKR 5,000</div><div class="right">Login</div></div></div>
+  <header class="brandbar container"><a href="index.html" class="logo-link"><div class="text-logo">ACS – Awais Cricket Store</div></a></header>
+  <nav class="main-nav"><div class="container nav-grid"><div class="nav-left"><a href="index.html">Home</a><a href="products.html">Shop</a></div></div></nav>
+
+  <main class="container">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <label>Your Name</label>
+      <input name="name" required />
+      <label>Your Email</label>
+      <input type="email" name="email" required />
+      <label>Message</label>
+      <textarea name="message" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+    <div id="contactMsg" class="contact-msg"></div>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><div><h4>Contact</h4></div></div><div class="bottom">© <span id="yearC"></span> ACS</div></footer>
+
+  <script>
+    document.getElementById('yearC').textContent = new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('contactMsg').textContent = 'Thanks — message received (demo).';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

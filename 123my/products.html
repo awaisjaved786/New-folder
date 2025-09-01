@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ACS – Products</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="left">Free shipping over PKR 5,000 • Call: +92-300-0000000</div>
+      <div class="right">Login | Track Order</div>
+    </div>
+  </div>
+
+  <header class="brandbar container">
+    <a href="index.html" class="logo-link"><div class="text-logo">ACS – Awais Cricket Store</div></a>
+    <div class="search-wrap">
+      <input placeholder="Search products..." id="searchP" />
+      <button id="searchPBtn">Search</button>
+    </div>
+    <div class="mini-actions"><a href="cart.html" class="cart-link">Cart (<span id="cartCountProducts">0</span>)</a></div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-grid">
+      <div class="nav-left">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+      </div>
+      <div class="nav-right">
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container products-page">
+    <h1>All Products</h1>
+
+    <!-- Bats -->
+    <section id="bats">
+      <h2>Cricket Bats</h2>
+      <div class="products-grid" id="batsGrid"></div>
+      <div class="load-more-wrap"><button class="btn load-more" data-cat="bats">Load More</button></div>
+    </section>
+
+    <!-- Balls -->
+    <section id="balls">
+      <h2>Cricket Balls</h2>
+      <div class="products-grid" id="ballsGrid"></div>
+      <div class="load-more-wrap"><button class="btn load-more" data-cat="balls">Load More</button></div>
+    </section>
+
+    <!-- Gloves -->
+    <section id="gloves">
+      <h2>Batting Gloves</h2>
+      <div class="products-grid" id="glovesGrid"></div>
+      <div class="load-more-wrap"><button class="btn load-more" data-cat="gloves">Load More</button></div>
+    </section>
+
+    <!-- Kits -->
+    <section id="kits">
+      <h2>Complete Kits</h2>
+      <div class="products-grid" id="kitsGrid"></div>
+      <div class="load-more-wrap"><button class="btn load-more" data-cat="kits">Load More</button></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><h4>About ACS</h4></div>
+      <div><h4>Support</h4></div>
+      <div><h4>Links</h4></div>
+    </div>
+    <div class="bottom">© <span id="yearP"></span> ACS – Awais Cricket Store</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=> {
+      if(window.populateAllProducts) populateAllProducts();
+      const y = document.getElementById('yearP'); if(y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
