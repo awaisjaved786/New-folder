@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Maheen & Walleed — Wedding Invitations + Sammi Meri Waar</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F8F1E7;
+    --gold:#C58B2F;
+    --marigold:#D87A13;
+    --deepred:#8B1A2A;
+    --teal:#0D7A75;
+    --card-width:800px;
+    --card-height:1150px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#efefef; font-family:'Merriweather', serif; color:#3b2f2f; display:flex; flex-direction:column; align-items:center; gap:30px; padding:30px 10px;}
+
+  .card {
+    width:var(--card-width);
+    height:var(--card-height);
+    background: linear-gradient(180deg,var(--paper), #fffaf0 60%);
+    border-radius:18px;
+    box-shadow:0 18px 40px rgba(20,20,20,0.22);
+    padding:48px;
+    position:relative;
+    overflow:hidden;
+    border: 6px solid rgba(197,139,47,0.12);
+    page-break-after: always;
+  }
+  .garland { width:100%; text-align:center; margin-bottom:8px; }
+  .garland svg{max-width:100%}
+
+  .panel{
+    border-radius:12px;
+    padding:36px 44px;
+    height: calc(100% - 120px);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.02));
+    border: 1px solid rgba(0,0,0,0.03);
+    position:relative;
+  }
+
+  .corner{ position:absolute; width:160px; height:160px; opacity:0.95; }
+  .corner.top-left{left:-18px; top:-18px; transform:rotate(10deg)}
+  .corner.top-right{right:-18px; top:-18px; transform:scaleX(-1) rotate(10deg)}
+  .corner.bottom-left{left:-18px; bottom:-18px; transform:rotate(-10deg)}
+  .corner.bottom-right{right:-18px; bottom:-18px; transform:scaleX(-1) rotate(-10deg)}
+
+  .title{ font-family:'Great Vibes', cursive; font-size:56px; color:var(--deepred); text-align:center; letter-spacing:1px; }
+  .subtitle{ text-align:center; margin-top:8px; color:#6b4f4f; font-size:18px; }
+
+  .names{ margin-top:26px;text-align:center; }
+  .names .bride-groom{ font-size:36px; font-weight:700; color:#4a2a2a; letter-spacing:1px; }
+  .names .heart{ color:var(--marigold); margin:0 10px; font-size:28px; }
+
+  .body-text{ margin-top:28px; text-align:center; font-size:18px; line-height:1.6; color:#483838; max-width:640px; margin-left:auto; margin-right:auto; }
+  .details{ margin-top:18px; text-align:center; font-size:18px; }
+  .ornamental-arch{ width:260px; height:160px; margin:18px auto 0; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12)); }
+  footer.note{ text-align:center; font-style:italic; color:#6a5a5a; margin-top:18px; font-size:15px; }
+
+  .lantern{ position:absolute; top:120px; width:62px;height:120px; opacity:0.94; }
+  .lantern.left{left:44px}
+  .lantern.right{right:44px; transform:scaleX(-1)}
+
+  .card[data-theme="mehndi"] .title{color:#B85A00}
+  .card[data-theme="mehndi"] .heart{color:var(--marigold)}
+  .card[data-theme="barat"]{border-color: rgba(139,26,42,0.12)}
+  .card[data-theme="barat"] .title{color:var(--deepred)}
+  .card[data-theme="walima"] .title{color:var(--teal)}
+  .card[data-theme="walima"] .heart{color:var(--teal)}
+
+  /* Fireworks canvas overlay */
+  #fwCanvas {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+  }
+  .fw-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 10010;
+    background: linear-gradient(180deg,#fff,#f0f0f0);
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    cursor:pointer;
+    font-family: inherit;
+  }
+  @media print {
+    #fwCanvas, .fw-button { display:none !important; }
+    body{background:white; padding:0}
+    .card{box-shadow:none; border:none; border-radius:0; margin:0; page-break-after:always}
+    @page { size: A4; margin:12mm; }
+  }
+  @media (max-width:900px){ :root{ --card-width:680px; --card-height:980px } }
+  @media (max-width:720px){
+    body{padding:14px}
+    .card{width:100%; height:auto}
+    .garland svg{transform:scale(0.9)}
+  }
+</style>
+</head>
+<body>
+
+
+<!-- Fireworks canvas and celebrate button -->
+<canvas id="fwCanvas" aria-hidden="true"></canvas>
+<button class="fw-button" id="fireBtn" title="Celebrate! 🎆">Celebrate 🎆</button>
+
+<!-- ==========================
+     Mehndi Card (Page 1)
+     ========================== -->
+<section class="card" data-theme="mehndi" aria-label="Mehndi Invitation">
+  <div class="garland" aria-hidden="true">
+    <svg viewBox="0 0 1000 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ffd79a"/><stop offset="1" stop-color="#ffb347"/></linearGradient></defs>
+      <g transform="translate(50,10)">
+        <g stroke="#cf8a18" stroke-width="2" fill="none">
+          <path d="M20 5 C40 50 60 50 80 5" />
+          <path d="M140 5 C160 50 180 50 200 5" />
+          <path d="M260 5 C280 50 300 50 320 5" />
+          <path d="M380 5 C400 50 420 50 440 5" />
+          <path d="M500 5 C520 50 540 50 560 5" />
+          <path d="M620 5 C640 50 660 50 680 5" />
+        </g>
+        <g transform="translate(0,50)">
+          <circle cx="40" cy="20" r="12" fill="#ff8a00"/>
+          <circle cx="160" cy="20" r="12" fill="#ff8a00"/>
+          <circle cx="280" cy="20" r="12" fill="#ff8a00"/>
+          <circle cx="400" cy="20" r="12" fill="#ff8a00"/>
+          <circle cx="520" cy="20" r="12" fill="#ff8a00"/>
+          <circle cx="640" cy="20" r="12" fill="#ff8a00"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="panel">
+    <svg class="corner top-left" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g><circle cx="20" cy="20" r="8" fill="#FFB347"/><path d="M16 36 q10 -16 28 -6 q-6 12 -22 18 z" fill="#D87A13" opacity="0.95"/><rect x="40" y="60" width="50" height="10" rx="5" fill="#C58B2F" transform="rotate(12 65 65)"/></g>
+    </svg>
+    <svg class="corner top-right" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g><circle cx="100" cy="20" r="8" fill="#FFB347"/><path d="M104 36 q-10 -16 -28 -6 q6 12 22 18 z" fill="#D87A13" opacity="0.95"/></g>
+    </svg>
+    <svg class="lantern left" viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#C58B2F" stroke="#8C5C09" stroke-width="1"><rect x="18" y="8" width="6" height="16" rx="3" /><rect x="10" y="30" width="40" height="64" rx="8" fill="#fff4e6" /><circle cx="30" cy="54" r="8" fill="#ffd28a" opacity="0.95"/></g>
+    </svg>
+    <svg class="lantern right" viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#C58B2F" stroke="#8C5C09" stroke-width="1"><rect x="18" y="8" width="6" height="16" rx="3" /><rect x="10" y="30" width="40" height="64" rx="8" fill="#fff4e6" /><circle cx="30" cy="54" r="8" fill="#ffd28a" opacity="0.95"/></g>
+    </svg>
+
+    <div>
+      <div class="title">Mehndi &amp; Sangeet</div>
+      <div class="subtitle">With joyful hearts, we invite you to celebrate</div>
+
+      <div class="names" role="heading" aria-level="2">
+        <div class="bride-groom">Maheen <span class="heart">❤</span> Walleed</div>
+      </div>
+
+      <div class="body-text">
+        Please join us for a colorful celebration of mehndi, music and dance as we begin the wedding festivities.
+      </div>
+
+      <div class="details">
+        <div style="font-weight:700; font-size:20px; margin-bottom:8px">Date: 5th</div>
+        <div>Venue: <strong>Family Banquet Hall</strong></div>
+        <div style="margin-top:10px; font-size:15px; color:#6a5a5a;">Time: 7:00 PM — <strong>Dinner will be served</strong></div>
+
+        <svg class="ornamental-arch" viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#D6A25A" stroke-width="5"><path d="M10 140 Q130 10 250 140" stroke="#D6A25A" stroke-width="6" fill="none"/><path d="M30 140 Q130 40 230 140" stroke="#F3D3A6" stroke-width="4" fill="none"/></g>
+        </svg>
+      </div>
+    </div>
+    <footer class="note">With love and blessings — Maheen &amp; Walleed</footer>
+  </div>
+</section>
+
+<!-- Barat Card (Page 2) -->
+<section class="card" data-theme="barat" aria-label="Barat Invitation">
+  <div class="garland" aria-hidden="true">
+    <svg viewBox="0 0 1000 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <g transform="translate(40,6)">
+        <rect x="0" y="0" width="920" height="12" rx="6" fill="#f9e9e9" stroke="#C58B2F" />
+        <g transform="translate(40,12)">
+          <circle cx="40" cy="30" r="14" fill="#D87A13"/>
+          <circle cx="140" cy="30" r="14" fill="#D87A13"/>
+          <circle cx="240" cy="30" r="14" fill="#D87A13"/>
+          <circle cx="340" cy=“30” r=“14” fill=“#D87A13”/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="panel">
+    <svg class="corner top-left" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g><path d="M14 26 q28 -8 48 8 q-12 18 -40 20 z" fill="#8B1A2A" opacity="0.95"/><circle cx="24" cy="18" r="8" fill="#F4C0B3"/></g>
+    </svg>
+    <svg class="corner top-right" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g><path d="M104 26 q-28 -8 -48 8 q12 18 40 20 z" fill="#8B1A2A" opacity="0.95"/><circle cx="96" cy="18" r="8" fill="#F4C0B3"/></g>
+    </svg>
+    <!-- lanterns etc. omitted for brevity -->
+    <div>
+      <div class="title">Barat Invitation</div>
+      <div class="subtitle">With the blessings of family and friends</div>
+      <div class="names"><div class="bride-groom">Maheen <span class="heart">❤</span> Walleed</div></div>
+      <div class="body-text">
+        We request the honor of your presence as Maheen walks down to join Walleed in the sacred bond of marriage.
+      </div>
+      <div class="details">
+        <div style="font-weight:700; font-size:20px; margin-bottom:8px">Date: 6th</div>
+        <div>Venue: <strong>Royal Grand Hall</strong></div>
+        <div style="margin-top:10px; font-size:15px; color:#6a5a5a;">Time: 10:30 AM — <strong>Dinner will be served</strong></div>
+      </div>
+    </div>
+    <footer class="note">Join us with your blessings — Maheen &amp; Walleed</footer>
+  </div>
+</section>
+
+<!-- Walima Card (Page 3) -->
+<section class="card" data-theme="walima" aria-label="Walima Invitation">
+  <div class="garland" aria-hidden="true">
+    <svg viewBox="0 0 1000 120" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(40,8)"><rect x="0" y="0" width="920" height="12" rx="6" fill="#e9fbfb" stroke="#0D7A75" /><g transform="translate(30,12)"><circle cx="60" cy="30" r="12" fill="#77D6CF"/><circle cx="160" cy="30" r="12" fill="#77D6CF"/><circle cx="260" cy="30" r="12" fill="#77D6CF"/></g></g>
+    </svg>
+  </div>
+  <div class="panel">
+    <svg class="corner top-left" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g><circle cx="22" cy="18" r="8" fill="#9EEFE6"/><path d="M20 36 q12 -14 36 -6 q-6 12 -30 18 z" fill="#1EA699" opacity="0.95"/></g>
+    </svg>
+    <svg class="corner top-right" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g><circle cx="98" cy="18" r="8" fill="#9EEFE6"/><path d="M100 36 q-12 -14 -36 -6 q6 12 ３０ 18 z" fill="#1EA699" opacity="0.95"/></g>
+    </svg>
+    <!-- other decorations omitted here for brevity -->
+    <div>
+      <div class="title">Walima Reception</div>
+      <div class="subtitle">Celebrate our new beginning with us</div>
+      <div class="names"><div class="bride-groom">Maheen <span class="heart">❤</span> Walleed</div></div>
+      <div class="body-text">Your gracious presence will make our Walima memorable — join us for lunch and celebrations as we start our married life.</div>
+      <div class="details">
+        <div style="font-weight:700; font-size:20px; margin-bottom:8px">Date: 7th</div>
+        <div>Venue: <strong>Green Palace</strong></div>
+        <div style="margin-top:10px; font-size:15px; color:#6a5a5a;">Time: 8:00 PM — <strong>Lunch will be served</strong></div>
+      </div>
+    </div>
+    <footer class="note">Bless us with your presence — Maheen &amp; Walleed</footer>
+  </div>
+</section>
+
+<script>
+// Fireworks script (bright fireworks)
+(function(){
+  const canvas = document.getElementById('fwCanvas');
+  const ctx = canvas.getContext('2d');
+  let W = canvas.width = window.innerWidth;
+  let H = canvas.height = window.innerHeight;
+  let fireworks = [], particles = [];
+  const GRAVITY = 0.06;
+  const FRICTION = 0.98;
+
+  class Particle {
+    constructor(x,y,vx,vy,color, life){
+      this.x = x; this.y = y;
+      this.vx = vx; this.vy = vy;
+      this.age = 0;
+      this.life = life || 60;
+      this.color = color;
+      this.size = Math.random()*2 + 2;
+    }
+    update(){
+      this.vx *= FRICTION;
+      this.vy *= FRICTION;
+      this.vy += GRAVITY;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.age++;
+    }
+    draw(){
+      let alpha = Math.max(0, 1 - this.age/this.life);
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    alive(){ return this.age < this.life; }
+  }
+
+  class Firework {
+    constructor(sx, sy, tx, ty, color){
+      this.x = sx;
+      this.y = sy;
+      this.tx = tx;
+      this.ty = ty;
+      this.vx = (tx - sx) * 0.02;
+      this.vy = (ty - sy) * 0.02;
+      this.color = color;
+      this.age = 0;
+      this.maxAge = 60;
+      this.exploded = false;
+    }
+    update(){
+      if(this.exploded) return;
+      this.vy += GRAVITY * 0.15;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.age++;
+      if(this.age > this.maxAge || Math.hypot(this.tx - this.x, this.ty - this.y) < 10){
+        this.explode();
+        this.exploded = true;
+      }
+    }
+    explode(){
+      let hue = Math.random()*360;
+      for(let i=0;i<80;i++){
+        let angle = Math.random()*2*Math.PI;
+        let speed = Math.random()*4 + 2;
+        let color = `hsl(${hue + Math.random()*50 - 25}, 80%, ${Math.random()*30 + 70}%)`;
+        particles.push(new Particle(this.x, this.y, Math.cos(angle)*speed, Math.sin(angle)*speed, color, 80));
+      }
+    }
+    draw(){
+      if(!this.exploded){
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3.5, 0, Math.PI*2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+  }
+
+  function spawnFirework(){
+    let sx = Math.random() * W;
+    let tx = Math.random() * W;
+    let ty = Math.random() * H * 0.5;
+    let colors = ["#ff4d4d", "#ffff33", "#33ff33", "#33ccff", "#ff33ff", "#ffffff"];
+    let color = colors[Math.floor(Math.random()*colors.length)];
+    fireworks.push(new Firework(sx, H + 20, tx, ty, color));
+  }
+
+  function loop(){
+    ctx.fillStyle = "rgba(0,0,0,0.2)";
+    ctx.fillRect(0, 0, W, H);
+
+    if (Math.random() < 0.08) {
+      spawnFirework();
+    }
+    for(let i = fireworks.length - 1; i >= 0; i--){
+      fireworks[i].update();
+      fireworks[i].draw();
+      if(fireworks[i].exploded) fireworks.splice(i,1);
+    }
+    for(let i = particles.length - 1; i >= 0; i--){
+      particles[i].draw();
+      if(particles[i].update()) particles.splice(i,1);
+    }
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+  document.getElementById('fireBtn').addEventListener('click', () => {
+    for(let i=0;i<20;i++){
+      setTimeout(spawnFirework, i * 150);
+    }
+  });
+  window.addEventListener('resize', ()=> {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  });
+})();
+</script>
+
+</body>
+</html>
