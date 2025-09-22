@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Math with Variables</title>
+</head>
+<body>
+
+  <h2>JavaScript Variables & Math Operations</h2>
+  <p id="demo"></p>
+
+  <script>
+    // ==========================
+    // Step 1: Create variables
+    // ==========================
+    var x = 10;   // first number
+    var y = 5;    // second number
+
+    // ==========================
+    // Step 2: Perform operations
+    // ==========================
+    var sum = x + y;        // addition
+    var difference = x - y; // subtraction
+    var product = x * y;    // multiplication
+    var quotient = x / y;   // division
+    var remainder = x % y;  // modulus (remainder)
+
+    // ==========================
+    // Step 3: Show results
+    // ==========================
+    document.getElementById("demo").innerHTML =
+      "The sum of x and y is: " + sum + "<br>" +
+      "The difference of x and y is: " + difference + "<br>" +
+      "The product of x and y is: " + product + "<br>" +
+      "The quotient of x and y is: " + quotient + "<br>" +
+      "The remainder of x divided by y is: " + remainder;
+  </script>
+
+</body>
+</html>

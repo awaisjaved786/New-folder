@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Statements Q&A</title>
+</head>
+<body>
+
+  <h2>JavaScript Statements Example</h2>
+
+  <!-- Questions -->
+  <p>1. What is your name?</p>
+  <p>2. What is your age?</p>
+  <p>3. What will your age be next year?</p>
+  <p>4. Are you an adult?</p>
+
+  <!-- Button -->
+  <button onclick="showAnswers()">Show Answers</button>
+
+  <!-- Answers -->
+  <div id="answers"></div>
+
+  <script>
+    function showAnswers() {
+      // Variables (statements)
+      var name = "Awais";
+      var age = 12;
+      var nextAge = age + 1;
+
+      var isAdult;
+      if (age >= 18) {
+        isAdult = "Yes";
+      } else {
+        isAdult = "No";
+      }
+
+      // Show answers
+      document.getElementById("answers").innerHTML =
+        "1. Hello " + name + "!<br>" +
+        "2. Your age is " + age + "<br>" +
+        "3. Next year you will be " + nextAge + "<br>" +
+        "4. Are you an adult? " + isAdult;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Operators Activity</title>
+</head>
+<body>
+
+  <h2>JavaScript Operators Activity</h2>
+  <p id="output"></p>
+
+  <script>
+    // ==========================
+    // Step 1: Variables
+    // ==========================
+    var a = 10;
+    var b = 3;
+
+    // ==========================
+    // Step 2: Arithmetic Operators
+    // ==========================
+    var add = a + b;   // Addition
+    var sub = a - b;   // Subtraction
+    var mul = a * b;   // Multiplication
+    var div = a / b;   // Division
+    var mod = a % b;   // Modulus (remainder)
+
+    // ==========================
+    // Step 3: Comparison Operators
+    // ==========================
+    var equal = (a == b);      // Equal to
+    var notEqual = (a != b);   // Not equal to
+    var greater = (a > b);     // Greater than
+    var less = (a < b);        // Less than
+
+    // ==========================
+    // Step 4: Logical Operators
+    // ==========================
+    var andOp = (a > 5 && b > 5);  // AND
+    var orOp  = (a > 5 || b > 5);  // OR
+    var notOp = !(a > b);          // NOT
+
+    // ==========================
+    // Step 5: Show Results
+    // ==========================
+    document.getElementById("output").innerHTML =
+      "<b>Arithmetic Operators:</b><br>" +
+      "a + b = " + add + "<br>" +
+      "a - b = " + sub + "<br>" +
+      "a * b = " + mul + "<br>" +
+      "a / b = " + div + "<br>" +
+      "a % b = " + mod + "<br><br>" +
+
+      "<b>Comparison Operators:</b><br>" +
+      "a == b → " + equal + "<br>" +
+      "a != b → " + notEqual + "<br>" +
+      "a > b  → " + greater + "<br>" +
+      "a < b  → " + less + "<br><br>" +
+
+      "<b>Logical Operators:</b><br>" +
+      "(a > 5 && b > 5) → " + andOp + "<br>" +
+      "(a > 5 || b > 5) → " + orOp + "<br>" +
+      "!(a > b) → " + notOp;
+  </script>
+
+</body>
+</html>
