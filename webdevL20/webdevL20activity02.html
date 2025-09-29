@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scope of Variables in JS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #f4f4f4;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #3498db;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 Scope of Variables in Functions</h1>
+
+  <div class="card">
+    <h2>Example</h2>
+    <button onclick="checkScope()">Check Scope</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    // Global Variable
+    let globalVar = "I am Global 🌍";
+
+    function checkScope() {
+      // Local variable (only inside this function)
+      let localVar = "I am Local 🔒";
+
+      // Block scope (inside if block)
+      if (true) {
+        let blockVar = "I am Block Scoped 📦";
+        var functionVar = "I use var (function scoped) ⚡";
+      }
+
+      // Show output
+      let output = "";
+      output += globalVar + "<br>";   // accessible
+      output += localVar + "<br>";    // accessible
+      output += functionVar + "<br>"; // accessible (because var is function-scoped)
+
+      try {
+        output += blockVar + "<br>"; // ❌ will cause error because blockVar is block-scoped
+      } catch (error) {
+        output += "blockVar ❌ not accessible outside its block<br>";
+      }
+
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+
+</body>
+</html>

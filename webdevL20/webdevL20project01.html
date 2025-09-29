@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4 Types of JavaScript Functions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f4f4f4;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 15px auto;
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #3498db;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✨ JavaScript 4 Function Types</h1>
+
+  <!-- 1. Function with Button -->
+  <div class="card">
+    <h2>1️⃣ Function with Button</h2>
+    <button onclick="showMessage()">Click Me</button>
+    <p id="msg1"></p>
+  </div>
+
+  <!-- 2. Function using document.getElementById -->
+  <div class="card">
+    <h2>2️⃣ Function with document.getElementById</h2>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="showName()">Show Name</button>
+    <p id="msg2"></p>
+  </div>
+
+  <!-- 3. Unparameterized Function -->
+  <div class="card">
+    <h2>3️⃣ Unparameterized Function</h2>
+    <button onclick="unparamFunction()">Run Function</button>
+    <p id="msg3"></p>
+  </div>
+
+  <!-- 4. Parameterized Function -->
+  <div class="card">
+    <h2>4️⃣ Parameterized Function</h2>
+    <button onclick="paramFunction('Awais', 13)">Run with Parameters</button>
+    <p id="msg4"></p>
+  </div>
+
+  <script>
+    // 1. Function with Button
+    function showMessage() {
+      document.getElementById("msg1").innerText = "Hello! You clicked the button ✅";
+    }
+
+    // 2. Function using document.getElementById
+    function showName() {
+      let name = document.getElementById("username").value;
+      document.getElementById("msg2").innerText = "Your name is: " + name;
+    }
+
+    // 3. Unparameterized Function
+    function unparamFunction() {
+      document.getElementById("msg3").innerText = "This is an unparameterized function!";
+    }
+
+    // 4. Parameterized Function
+    function paramFunction(name, age) {
+      document.getElementById("msg4").innerText = "Hello " + name + "! You are " + age + " years old.";
+    }
+  </script>
+
+</body>
+</html>
