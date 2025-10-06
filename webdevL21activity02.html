@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Methods Activity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+      text-align: center;
+      padding: 50px;
+    }
+    h2 {
+      color: #222;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #6a5acd;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #5a4bb5;
+      transform: scale(1.05);
+    }
+    #output {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
+      color: #222;
+      min-height: 100px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h2>✨ JavaScript Methods Activity ✨</h2>
+
+  <button onclick="arrayMethods()">Array Methods</button>
+  <button onclick="stringMethods()">String Methods</button>
+
+  <div id="output">Click a button to see methods in action 👇</div>
+
+  <script>
+    function arrayMethods() {
+      let numbers = [10, 5, 8, 3];
+      let result = "<h3>Array Methods</h3>";
+
+      result += "Original: " + numbers.join(", ") + "<br>";
+
+      numbers.push(15);
+      result += "push(15): " + numbers.join(", ") + "<br>";
+
+      numbers.pop();
+      result += "pop(): " + numbers.join(", ") + "<br>";
+
+      numbers.sort((a,b) => a-b);
+      result += "sort(): " + numbers.join(", ") + "<br>";
+
+      numbers.reverse();
+      result += "reverse(): " + numbers.join(", ") + "<br>";
+
+      document.getElementById("output").innerHTML = result;
+    }
+
+    function stringMethods() {
+      let text = " Hello JavaScript ";
+      let result = "<h3>String Methods</h3>";
+
+      result += "Original: '" + text + "'<br>";
+      result += "trim(): '" + text.trim() + "'<br>";
+      result += "toUpperCase(): " + text.toUpperCase() + "<br>";
+      result += "toLowerCase(): " + text.toLowerCase() + "<br>";
+      result += "slice(1,6): " + text.slice(1,6) + "<br>";
+      result += "replace('JavaScript','JS'): " + text.replace("JavaScript","JS") + "<br>";
+
+      document.getElementById("output").innerHTML = result;
+    }
+  </script>
+</body>
+</html>

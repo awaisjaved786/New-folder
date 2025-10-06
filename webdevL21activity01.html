@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loop Activity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      text-align: center;
+      padding: 50px;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+      transform: scale(1.05);
+    }
+    #output {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
+      color: #222;
+      min-height: 100px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>✨ JavaScript Loop Activity ✨</h2>
+
+  <button onclick="forLoop()">Run For Loop</button>
+  <button onclick="whileLoop()">Run While Loop</button>
+  <button onclick="forOfLoop()">Run For...of Loop</button>
+
+  <div id="output">Click a button to see the result here 👇</div>
+
+  <script>
+    function forLoop() {
+      let result = "<h3>For Loop Result</h3>";
+      for (let i = 1; i <= 5; i++) {
+        result += "👉 Count: " + i + "<br>";
+      }
+      document.getElementById("output").innerHTML = result;
+    }
+
+    function whileLoop() {
+      let i = 1;
+      let result = "<h3>While Loop Result</h3>";
+      while (i <= 5) {
+        result += "⭐ Number: " + i + "<br>";
+        i++;
+      }
+      document.getElementById("output").innerHTML = result;
+    }
+
+    function forOfLoop() {
+      let fruits = ["🍎 Apple", "🍌 Banana", "🥭 Mango", "🍊 Orange"];
+      let result = "<h3>For...of Loop Result</h3>";
+      for (let fruit of fruits) {
+        result += fruit + "<br>";
+      }
+      document.getElementById("output").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
