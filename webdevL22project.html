@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Function Explorer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      padding: 30px;
+      color: #333;
+    }
+
+    h1 {
+      color: #007acc;
+    }
+
+    input[type="text"] {
+      width: 400px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📐 Math Function Explorer</h1>
+  <p>Enter numbers separated by commas (e.g., <code>0, 0.5, 1, 2</code>):</p>
+
+  <input type="text" id="numbersInput" placeholder="Enter numbers here">
+  <button onclick="processNumbers()">Calculate</button>
+
+  <div class="result-box" id="sumResult"></div>
+
+  <table id="resultTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>sin(x)</th>
+        <th>cos(x)</th>
+        <th>asin(x)</th>
+        <th>atan(x)</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+
+  <script>
+    function processNumbers() {
+      const input = document.getElementById("numbersInput").value;
+      const numberStrings = input.split(",");
+      const numbers = [];
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = "";
+      let sum = 0;
+
+      numberStrings.forEach(str => {
+        const num = parseFloat(str.trim());
+        if (!isNaN(num)) {
+          numbers.push(num);
+          sum += num;
+
+          // Prepare row data
+          const sinVal = Math.sin(num).toFixed(4);
+          const cosVal = Math.cos(num).toFixed(4);
+          const asinVal = (num >= -1 && num <= 1) ? Math.asin(num).toFixed(4) : "N/A";
+          const atanVal = Math.atan(num).toFixed(4);
+
+          const row = `
+            <tr>
+              <td>${num}</td>
+              <td>${sinVal}</td>
+              <td>${cosVal}</td>
+              <td>${asinVal}</td>
+              <td>${atanVal}</td>
+            </tr>
+          `;
+          tableBody.innerHTML += row;
+        }
+      });
+
+      if (numbers.length > 0) {
+        document.getElementById("sumResult").innerHTML = `🧮 Sum of Values: <strong>${sum.toFixed(4)}</strong>`;
+        document.getElementById("resultTable").style.display = "table";
+      } else {
+        document.getElementById("sumResult").innerHTML = "⚠️ Please enter valid numbers.";
+        document.getElementById("resultTable").style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

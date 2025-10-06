@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    marks=10
+    //activity01
+    var person={
+     firstname:"awais",
+     email:"Awais@786gmail.com",  
+     number:"03056532613" 
+    }
+
+    document.write("<br/> Firstname  : "+person.firstname)
+    document.write("<br/> Email  : "+person.email)
+     document.write("<br/> Number : "+person.number)
+
+
+     //activity02
+     value= -345;
+     document.write("<br/> the value is "+Math.abs(value))
+     document.write("<br/> the cos value is "+Math.cos(100))
+     document.write("<br/> the sin value is "+Math.sin(50))
+     document.write("<br/> the sin value is "+Math.asin(.5))
+     document.write("<br/> the sin value is "+Math.atan(45))
+   </script>
+   
+   <script>
+// activity = 3
+function findmax(){
+    var i;
+    var max = 0;
+    for(i = 0; i < arguments.length; i++){
+        if (arguments[i] > max){
+            max = arguments[i];
+        }
+    }
+    return max;
+}
+
+document.write("<br/> The maximum value is " + findmax(12, 2, 3, 3, 23));
+</script>
+
+</body>
+</html>
